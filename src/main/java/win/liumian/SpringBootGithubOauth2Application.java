@@ -71,6 +71,7 @@ public class SpringBootGithubOauth2Application extends WebSecurityConfigurerAdap
 		CompositeFilter filter = new CompositeFilter();
 		List<Filter> filters = new ArrayList<>();
 		filters.add(ssoFilter(github(), "/login/github"));
+		filters.add(ssoFilter(weibo(), "/login/weibo"));
 		filter.setFilters(filters);
 		return filter;
 	}
@@ -79,6 +80,13 @@ public class SpringBootGithubOauth2Application extends WebSecurityConfigurerAdap
 	@ConfigurationProperties("github")
 	//使用application.yml中github的配置
 	public ClientResources github() {
+		return new ClientResources();
+	}
+
+
+	@Bean
+	@ConfigurationProperties("weibo")
+	public ClientResources weibo(){
 		return new ClientResources();
 	}
 
