@@ -1,11 +1,10 @@
-package win.liumian.oauth2;
+package win.liumian.controller;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.format.support.DefaultFormattingConversionService;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -19,17 +18,17 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standal
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
-public class WeiboOAuth2Test {
+public class WeiboOAuth2ControllerTest {
 
 
     private MockMvc mockMvc;
 
     @Autowired
-    private WeiboOAuth2 weiboOAuth2;
+    private WeiboOAuth2Controller weiboOAuth2Controller;
 
     @Before
     public void setup() throws Exception {
-        this.mockMvc = standaloneSetup(weiboOAuth2)
+        this.mockMvc = standaloneSetup(weiboOAuth2Controller)
                 .alwaysExpect(status().isMovedTemporarily()).build();
     }
 

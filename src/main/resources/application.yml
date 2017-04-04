@@ -22,8 +22,8 @@ weibo:
   client:
     clientId: 3050804627
     clientSecret: bf408e0747d07bd683599e6f539b61df
-    accessTokenUri: https://api.weibo.com/oauth2/access_token
-    userAuthorizationUri: https://api.weibo.com/oauth2/authorize
+    accessTokenUri: https://api.weibo.com/controller/access_token
+    userAuthorizationUri: https://api.weibo.com/controller/authorize
     clientAuthenticationScheme: form
   resource:
     userInfoUri: https://api.weibo.com/user
