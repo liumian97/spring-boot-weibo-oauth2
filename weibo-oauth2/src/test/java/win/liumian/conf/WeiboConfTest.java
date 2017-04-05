@@ -14,16 +14,19 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class WeiboConfTest {
 
     @Autowired
-    private WeiboConf weiboConf;
+    private WeiboClientConf weiboClient;
 
+    @Autowired
+    private WeiboResourceConf resourceConf;
 
     @Test
-    public void test(){
-        System.out.println(weiboConf.getAccessTokenUri());
-        System.out.println(weiboConf.getClientAuthenticationScheme());
-        System.out.println(weiboConf.getClientId());
-        System.out.println(weiboConf.getClientSecret());
-        System.out.println(weiboConf.getUserAuthorizationUri());
+    public void test() {
+        System.out.println(weiboClient.getAccessTokenUri());
+        System.out.println(weiboClient.getClientAuthenticationScheme());
+        System.out.println(weiboClient.getClientId());
+        System.out.println(weiboClient.getClientSecret());
+        System.out.println(weiboClient.getUserAuthorizationUri());
+        System.out.println(resourceConf.getFriendsUrl());
     }
 
 

@@ -1,74 +1,35 @@
 package win.liumian.conf;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.NestedConfigurationProperty;
 import org.springframework.stereotype.Component;
 
 /**
  * Created by liumian on 2017/4/3.
  */
 @Component
-@ConfigurationProperties(prefix = "weibo.client")
+@ConfigurationProperties(prefix = "weibo")
 public class WeiboConf {
 
-    private String clientId;
-    private String clientSecret;
+    @NestedConfigurationProperty
+    private WeiboClientConf weiboClientConf = new WeiboClientConf();
 
-    private String accessTokenUri;
+    @NestedConfigurationProperty
+    private WeiboResourceConf weiboResourceConf = new WeiboResourceConf();
 
-    private String userAuthorizationUri;
-
-    private String clientAuthenticationScheme;
-
-    private String redirectUrl;
-
-    public String getRedirectUrl() {
-        return redirectUrl;
+    public WeiboClientConf getWeiboClientConf() {
+        return weiboClientConf;
     }
 
-    public void setRedirectUrl(String redirectUrl) {
-        this.redirectUrl = redirectUrl;
+    public void setWeiboClientConf(WeiboClientConf weiboClientConf) {
+        this.weiboClientConf = weiboClientConf;
     }
 
-    //    private String
-
-
-    public String getClientId() {
-        return clientId;
+    public WeiboResourceConf getWeiboResourceConf() {
+        return weiboResourceConf;
     }
 
-    public void setClientId(String clientId) {
-        this.clientId = clientId;
-    }
-
-    public String getClientSecret() {
-        return clientSecret;
-    }
-
-    public void setClientSecret(String clientSecret) {
-        this.clientSecret = clientSecret;
-    }
-
-    public String getAccessTokenUri() {
-        return accessTokenUri;
-    }
-
-    public void setAccessTokenUri(String accessTokenUri) {
-        this.accessTokenUri = accessTokenUri;
-    }
-
-    public String getUserAuthorizationUri() {
-        return userAuthorizationUri;
-    }
-
-    public void setUserAuthorizationUri(String userAuthorizationUri) {
-        this.userAuthorizationUri = userAuthorizationUri;
-    }
-
-    public String getClientAuthenticationScheme() {
-        return clientAuthenticationScheme;
-    }
-
-    public void setClientAuthenticationScheme(String clientAuthenticationScheme) {
-        this.clientAuthenticationScheme = clientAuthenticationScheme;
+    public void setWeiboResourceConf(WeiboResourceConf weiboResourceConf) {
+        this.weiboResourceConf = weiboResourceConf;
     }
 }

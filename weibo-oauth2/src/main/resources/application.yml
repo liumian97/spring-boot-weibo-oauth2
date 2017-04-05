@@ -8,7 +8,9 @@ weibo:
     redirectUrl: http://127.0.0.1:8080/login/weibo
   resource:
     userInfoUri: https://api.weibo.com/user
+    friendsUrl: https://api.weibo.com/2/friendships/friends.json
 
 logging:
   level:
-    org.springframework.security: DEBUG
+    org.springframework.boot: DEBUG
+    org.springframework.web: DEBUG

@@ -9,6 +9,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
@@ -49,6 +50,14 @@ public class WeiboOAuth2ControllerTest {
 
         this.mockMvc.perform(get("/weibo/login")).andReturn();
 
+    }
+
+
+    @Test
+    public void requestTokenTest() throws Exception {
+        this.mockMvc.perform(get("/login/weibo?code=d68daeb4551e1153eea11c26f6638bd2"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(content().string("access_token"));
     }
 
 
